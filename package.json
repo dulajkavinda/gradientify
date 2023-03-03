@@ -1,0 +1,26 @@
+{
+  "name": "gradientify",
+  "version": "1.0.0",
+  "description": "Lambda function to generate a css gradient from an image",
+  "main": "index.js",
+  "scripts": {
+    "start:dev": "npx nodemon",
+    "build": "rimraf ./build && tsc",
+    "start": "npm run build && node build/index.js",
+    "lint": "eslint src/**/*.ts",
+    "format": "eslint src/**/*.ts --fix"
+  },
+  "keywords": [],
+  "author": "Dulaj Kavinda",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^18.14.5",
+    "nodemon": "^2.0.21",
+    "prettier": "^2.8.4",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.9.5"
+  },
+  "dependencies": {
+    "jimp": "^0.22.7"
+  }
+}
