@@ -4,36 +4,31 @@ import reduce from './reduce';
 import Jimp from 'jimp';
 import { GradientOptions } from '../types/types';
 
-async function imageToGradient(imagePath: string, options?: GradientOptions | null | undefined): Promise<string> {
-  let optionAngle: number;
-  let optionSteps: number;
+async function imageToGradient(imagePath: Buffer, options?: GradientOptions | null | undefined): Promise<string> {
+  let optionAngle = 0;
+  let optionSteps = 16;
 
-  if (!options) {
-    options = {
-      angle: 0,
-      steps: 16,
-    };
-  } else {
+  if (options) {
     optionAngle = options?.angle;
     optionSteps = options?.steps;
   }
 
   return new Promise(async (resolve, reject) => {
-    await Jimp.read(imagePath, (err, image) => {
-      if (err) {
+    await Jimp.read(imagePath)
+      .then((image) => {
+        const gradient = reduce(image, optionSteps, optionAngle);
+        normalizeGradient(gradient);
+        const str = gradientToCssString(gradient);
+
+        if (str) {
+          resolve(str);
+        } else {
+          reject('Error: Gradient string is empty');
+        }
+      })
+      .catch((err) => {
         reject(err);
-      }
-
-      let gradient = reduce(image, optionSteps, optionAngle);
-      normalizeGradient(gradient);
-      let str = gradientToCssString(gradient);
-
-      if (str) {
-        resolve(str);
-      } else {
-        reject('Error: Gradient string is empty');
-      }
-    });
+      });
   });
 }
 

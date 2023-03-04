@@ -4,23 +4,35 @@
   "description": "Lambda function to generate a css gradient from an image",
   "main": "index.js",
   "scripts": {
-    "start:dev": "npx nodemon",
+    "start:dev": "npx nodemon src/index",
     "build": "rimraf ./build && tsc",
     "start": "npm run build && node build/index.js",
     "lint": "eslint src/**/*.ts",
-    "format": "eslint src/**/*.ts --fix"
+    "format": "eslint src/**/*.ts --fix",
+    "deploy": "sls deploy"
   },
   "keywords": [],
   "author": "Dulaj Kavinda",
   "license": "MIT",
   "devDependencies": {
+    "@types/aws-lambda": "^8.10.111",
     "@types/node": "^18.14.5",
+    "@types/serverless": "^3.12.11",
     "nodemon": "^2.0.21",
     "prettier": "^2.8.4",
+    "serverless-bundle": "^6.0.0",
+    "serverless-dotenv-plugin": "^4.0.2",
+    "serverless-offline": "^12.0.4",
+    "serverless-plugin-typescript": "^2.1.4",
+    "serverless-plugin-typescript-express": "^1.0.8",
     "ts-node": "^10.9.1",
     "typescript": "^4.9.5"
   },
   "dependencies": {
-    "jimp": "^0.22.7"
+    "aws-lambda": "^1.0.7",
+    "aws-sdk": "^2.1328.0",
+    "dotenv": "^16.0.3",
+    "jimp": "^0.22.7",
+    "serverless-http": "^3.1.1"
   }
 }

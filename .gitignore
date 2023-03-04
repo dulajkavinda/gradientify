@@ -1,3 +1,15 @@
+# package directories
 node_modules
-sample
+jspm_packages
+
+# Serverless directories
+.DS_Store
+.build/
+.env
+.webpack/
+handler.ts
 output.html
+package-lock.json
+serverless.yml
+src/lib/s3.ts
+yarn-error.log

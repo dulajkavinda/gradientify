@@ -1,8 +1,8 @@
 import fs from 'fs';
-import { OUTPUT_PATH, Extension } from './constants';
+import { OUTPUT_PATH } from './constants';
 
-function writeHTMLFile(data: string) {
-  var html = `
+function writeHTMLFile(data: string): void {
+  const html = `
   <html>
       <head>
           <style>

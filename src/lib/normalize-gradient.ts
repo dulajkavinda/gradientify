@@ -1,8 +1,8 @@
 import { Gradient } from '../types/types';
 
-function normalizeGradient(gradient: Gradient) {
+function normalizeGradient(gradient: Gradient): void {
   for (let i = 0; i < gradient.steps; i++) {
-    let unit = gradient.unit[i];
+    const unit = gradient.unit[i];
     gradient.red[i] /= unit;
     gradient.green[i] /= unit;
     gradient.blue[i] /= unit;

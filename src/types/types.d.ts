@@ -12,3 +12,9 @@ export type GradientOptions = {
   angle: number;
   steps: number;
 };
+
+export type GradientResponse = {
+  isBase64Encoded: boolean;
+  statusCode: number;
+  body: string;
+};

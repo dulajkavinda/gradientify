@@ -8,8 +8,8 @@ function addToGradient(
   blue: number,
   alpha: number,
   weight: number,
-) {
-  let idx = index;
+): void {
+  const idx = index;
   gradient.red[idx] += red;
   gradient.green[idx] += green;
   gradient.blue[idx] += blue;

@@ -1,7 +1,7 @@
 import { Gradient } from '../types/types';
 
 function gradientToCssString(gradient: Gradient): string {
-  let str = ['linear-gradient'];
+  const str = ['linear-gradient'];
   let separator = '(';
 
   if (gradient.angle !== 0) {
@@ -9,10 +9,10 @@ function gradientToCssString(gradient: Gradient): string {
   }
 
   for (let i = 0; i < gradient.steps; i++) {
-    let red = Math.floor(gradient.red[i]);
-    let green = Math.floor(gradient.green[i]);
-    let blue = Math.floor(gradient.blue[i]);
-    let alpha = (gradient.alpha[i] / 255.0).toPrecision(2);
+    const red = Math.floor(gradient.red[i]);
+    const green = Math.floor(gradient.green[i]);
+    const blue = Math.floor(gradient.blue[i]);
+    const alpha = (gradient.alpha[i] / 255.0).toPrecision(2);
     str.push(separator + 'rgba(' + red + ',' + green + ',' + blue + ',' + alpha + ')');
     separator = ',';
   }
